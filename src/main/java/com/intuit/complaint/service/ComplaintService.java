@@ -1,9 +1,11 @@
 package com.intuit.complaint.service;
 
+import com.intuit.complaint.constants.Constants;
 import com.intuit.complaint.dto.ComplaintDTO;
 import com.intuit.complaint.dto.PurchaseDTO;
 import com.intuit.complaint.dto.UserDTO;
 import com.intuit.complaint.model.ComplaintModel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -15,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Service
+@Slf4j
 public class ComplaintService {
 
     @Autowired
@@ -39,9 +42,9 @@ public class ComplaintService {
     }
 
     public void processComplaint(ComplaintDTO complaintDTO) {
-        URI serviceURL = URI.create("http://localhost:8081/users/" + complaintDTO.getUserId());
+        URI serviceURL = URI.create(Constants.USERS_URL + complaintDTO.getUserId());
         UserDTO userDTO = restTemplate.getForObject(serviceURL, UserDTO.class);
-        serviceURL = URI.create("http://localhost:8081/purchases/" + complaintDTO.getPurchaseId());
+        serviceURL = URI.create(Constants.PURCHASE_URL + complaintDTO.getPurchaseId());
         PurchaseDTO purchaseDTO = restTemplate.getForObject(serviceURL, PurchaseDTO.class);
         ComplaintModel complaintModel = ComplaintModel.builder()
                 .complaintId(complaintDTO.getComplaintId())
@@ -53,6 +56,7 @@ public class ComplaintService {
                 .userInfo(userDTO)
                 .build();
 
+        log.info("Created complain model: " + complaintModel.toString());
         complaintRepository.save(complaintModel);
     }
 }

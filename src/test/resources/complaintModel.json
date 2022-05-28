@@ -1,0 +1,24 @@
+{
+  "complaintId": "45832d6c-9ebb-4b17-9242-85677e25a471",
+  "complaint": "I made a purchase and the item hasn’t shipped. It’s been over a week. Please help!",
+  "subject": "The seller never sent my item!",
+  "userId": "8145b0d6-feb2-4ff6-8546-c0a5eece6f82",
+  "purchaseId": "af0676a6-542f-44c6-ae9d-1c0da4c4f1b3",
+  "userInfo": {
+    "id": "8145b0d6-feb2-4ff6-8546-c0a5eece6f82",
+    "fullName": "Elizabeth Clark",
+    "emailAddress": "example@test.com",
+    "physicalAddress": "Test Lane 7 Los Angeles"
+  },
+  "purchaseInfo": {
+    "id": "af0676a6-542f-44c6-ae9d-1c0da4c4f1b3",
+    "userId": "a90f6dd7-b74b-4be6-9065-daa1a92ba7ab",
+    "productId": "12f7182a-34a5-4d6c-93a1-4d283badfa1f",
+    "productName": "Piggy Bank",
+    "pricePaidAmount": 15.0,
+    "priceCurrency": "USD",
+    "discountPercent": 0.0,
+    "merchantId": "6be6c9b6-35c6-4bef-bd9b-39f8fa3f6399",
+    "purchaseDate": "2021-06-20T21:00:00.000+00:00"
+  }
+}
