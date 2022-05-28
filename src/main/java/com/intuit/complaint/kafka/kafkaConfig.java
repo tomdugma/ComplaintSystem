@@ -34,7 +34,10 @@ public class kafkaConfig {
     @Value("${spring.kafka.consumer.group-id}")
     String groupId;
 
-
+    /**
+     * creates kafka producer
+     * @return producer factory
+     */
     @Bean
     public ProducerFactory<String, ComplaintDTO> producerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -46,6 +49,10 @@ public class kafkaConfig {
         return new DefaultKafkaProducerFactory<>(config);
     }
 
+    /**
+     * creates kafka consumer
+     * @return consumer factory
+     */
     @Bean
     public KafkaTemplate<String, ComplaintDTO> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
