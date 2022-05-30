@@ -33,10 +33,10 @@ public class ComplaintModel {
 
     private UUID purchaseId;
 
-    @NotNull
+    @NotNull(message = "user info is required")
     private UserDTO userInfo;
 
-    @NotNull
+    @NotNull(message = "purchase info is required")
     private PurchaseDTO purchaseInfo;
 
     @Override

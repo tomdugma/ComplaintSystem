@@ -36,7 +36,7 @@ public class ComplaintController {
     public ComplaintModel getComplaintById(@PathVariable String id) {
         try{
             log.info("inside get complaint, complaint: " + id);
-            return complaintService.getById(UUID.fromString(id));
+            return complaintService.getComplaintById(UUID.fromString(id));
         }catch (Exception e){
             log.error("failed to get complaint by id: " + id, e);
         }

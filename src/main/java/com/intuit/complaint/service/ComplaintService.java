@@ -29,15 +29,18 @@ public class ComplaintService {
     @Autowired
     kafkaProducer complaintProducer;
 
-    public String enqueueComplaint(ComplaintDTO resource) {
-        resource.setComplaintId(UUID.randomUUID());
-        complaintProducer.sendComplaint(resource);
-        return resource.getComplaintId().toString();
+    public String enqueueComplaint(ComplaintDTO complaintDTO) {
+        // set random ID, return to user while waiting for complaint processing
+        complaintDTO.setComplaintId(UUID.randomUUID());
+        // produce complaint
+        complaintProducer.sendComplaint(complaintDTO);
+        log.info("Complaint with the id {} is in process", complaintDTO.getComplaintId());
+        return complaintDTO.getComplaintId().toString();
     }
 
-    public ComplaintModel getById(UUID id) {
+    public ComplaintModel getComplaintById(UUID id) {
         ComplaintModel complaint = complaintRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("complaint id [%s] not found", id.toString())));
+                .orElseThrow(() -> new IllegalArgumentException(String.format("complaint id [%s] not found", id)));
         return complaint;
     }
 

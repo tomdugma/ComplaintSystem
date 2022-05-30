@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 //import com.intuit.complaint.status.ComplaintStatusEnum;
+import com.intuit.complaint.constants.ComplaintStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,5 +36,7 @@ public class ComplaintDTO {
     private UUID purchaseId;
 
     private UUID complaintId;
+
+    private ComplaintStatusEnum complaintStatusEnum;
 
 }

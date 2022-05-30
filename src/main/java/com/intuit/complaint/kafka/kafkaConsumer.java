@@ -16,7 +16,7 @@ public class kafkaConsumer {
     @Autowired
     private ComplaintService complaintService;
 
-    @KafkaListener(topics = "complaint-event", groupId = "complaint-group",
+    @KafkaListener(topics = "complaints-topic-for-online-market", groupId = "complaint-group-online-market",
             containerFactory = "complaintKafkaListenerFactory")
     public void consumeComplaint(ComplaintDTO complainMsg, @Header(KafkaHeaders.RECEIVED_TOPIC) String topic) {
         log.info("Consumer now consume the following massage: " + complainMsg);
