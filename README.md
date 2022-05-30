@@ -1,7 +1,7 @@
 # A complaint system.
 Technology stack used: Java 8, Spring, Kafka, MongoDB
 
-## Instalation
+## Installation
 In order to run the project.
 download/clone the project to your local machine.
 you need to run the docker-compose
