@@ -3,27 +3,32 @@ Technology stack used: Java 8, Spring, Kafka, MongoDB
 
 ## Instalation
 In order to run the project.
-download/clone the project to your local machine
-you need to run the docker-compose file which creates and running Kafka & Mongo, command:
+download/clone the project to your local machine.
+you need to run the docker-compose
+file which creates and running Kafka & Mongo, command:
+```
   docker-compose -f docker-compose.yaml up -d
-
+```
 than run the craft demo in another terminal window, command:
+```
   java -jar craft-mock.jar
-  
+```
   
 ## Usage
-via Postman, run http://localhost:9090/complaint/register with a valid request body:
+via Postman, run http://localhost:{yourPort}/complaint/register with a valid request body:
 e.g :
+```
 {
     "userId" : "8145b0d6-feb2-4ff6-8546-c0a5eece6f82",
     "subject" : "The seller never sent my item!",
     "complaint" : "I made a purchase and the item hasn’t shipped. It’s been over a week. Please help!",
     "purchaseId" : "c2437271-ec14-40fe-92cc-22284ab3a25f"
 }
+```
 return an ID: 7d6a8f0e-ccbb-459f-9192-349c86351625
 
 paste it to a GET request in a new tab via Postman
-http://localhost:9090/complaint/7d6a8f0e-ccbb-459f-9192-349c86351625
+http://localhost:{yourPort}/complaint/7d6a8f0e-ccbb-459f-9192-349c86351625
 
 full complaint response
 ```
